@@ -1,0 +1,332 @@
+/* Global Styles */
+html, body {
+    background: #000;
+    color: #e0e0e0;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Video Container */
+.video-container {
+    aspect-ratio: 16/9;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #000;
+}
+
+/* Text (Metin) */
+.metin {
+    background: #181818;
+    color: #fff;
+    padding: 24px;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    min-height: 60px;
+    margin-bottom: 0;
+    word-break: break-word;
+}
+
+/* Highlighted Words */
+.lgt_kelime {
+    color: #2ecc40;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 0 2px;
+    transition: background 0.2s, color 0.2s;
+}
+.lgt_kelime:hover .tooltip {
+    display: block;
+}
+
+/* Tooltip */
+.tooltip {  
+    font-weight: bold;
+    z-index: 9999;        
+    position: absolute;
+    left: 50%;
+    top: -2.5em;
+    transform: translateX(-50%);
+    background: #ffffff;
+    color: #000000;
+    padding: 0.5em 1em;
+    border-radius: 8px;
+    font-size: 1.15rem;
+    white-space: pre-line;
+    min-width: 150px;
+    max-width: 300px;
+    box-shadow: 0 2px 8px #0006;
+    pointer-events: none;
+    opacity: 0.99;
+    display: none;
+}
+
+.metin, 
+.container, 
+.video-container, 
+.metin-container, 
+.sozluk-bolumu {
+  overflow: visible;
+}
+
+/* Text Area Container */
+.metin-container {
+    background: #111;
+    border-radius: 8px;
+    padding: 1rem;
+}
+.metin-container textarea {
+    background: #111 !important;
+    color: #e0e0e0 !important;
+    border: none !important;
+    resize: none;
+    font-size: 1.1rem;
+    line-height: 2.5;
+    min-height: 300px;
+}
+.metin-container textarea:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Word List */
+.kelime-listesi,
+#kelime-listesi {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.kelime-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #222;
+    border-radius: 7px;
+    padding: 8px 14px;
+    font-size: 1.08rem;
+    color: #fff;
+    box-shadow: 0 1px 4px #0003;
+    transition: background 0.2s;
+}
+.kelime-item:hover {
+    background: #232;
+}
+.kelime-adi {
+    font-weight: bold;
+    color: #0f0;
+    margin-right: 12px;
+}
+.kelime-anlam {
+    color: #ccc;
+    margin: 0 8px 0 0;
+    flex: 1;
+}
+.sil-btn {
+    background: #c00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s, color 0.2s;
+}
+.sil-btn:hover {
+    background: #f33;
+    color: #fff;
+}
+
+/* Form Controls */
+.form-control {
+    background: #111;
+    border: 1px solid #333;
+    color: #e0e0e0;
+}
+.form-control:focus {
+    background: #111;
+    border-color: #4CAF50;
+    color: #e0e0e0;
+    box-shadow: none;
+}
+
+/* Buttons */
+.btn-success {
+    background: #4CAF50;
+    border: none;
+}
+.btn-success:hover {
+    background: #45a049;
+}
+.btn-danger {
+    background: #dc3545;
+    border: none;
+}
+.btn-danger:hover {
+    background: #c82333;
+}
+
+/* Headings */
+h1 {
+    text-align: center;
+    font-size: 2.1rem;
+    margin-bottom: 28px;
+    color: #0f0;
+    letter-spacing: 1px;
+}
+
+/* Add Area */
+.ekle-alani {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px;
+    justify-content: center;
+}
+.ekle-alani input[type="text"] {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #222;
+    background: #222;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s;
+}
+.ekle-alani input[type="text"]:focus {
+    border: 1.5px solid #0f0;
+}
+#ekle-btn {
+    background: linear-gradient(90deg, #0f0 60%, #0a0 100%);
+    color: #111;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+#ekle-btn:hover {
+    background: linear-gradient(90deg, #0fa 60%, #0f0 100%);
+    color: #000;
+}
+
+/* Dictionary Section */
+.sozluk-bolumu {
+    background: #181818;
+    border-radius: 12px;
+    margin-top: 32px;
+    padding: 20px 18px 16px;
+    box-shadow: 0 2px 16px #000a;
+}
+.sozluk-bolumu h2 {
+    color: #0f0;
+    font-size: 1.3rem;
+    margin: 0 0 16px;
+    letter-spacing: 1px;
+}
+
+/* Text Viewer */
+#text-viewer {
+ 
+    min-height: 7em;
+    max-height: 14em;
+    font-size: 1.35rem;
+    padding: 1em;
+    background: #222;
+    color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px #0004;
+    margin-bottom: 1em;
+}
+
+
+/* ====== Telefon Modu (max-width:767px) ====== */
+@media (max-width: 767px) {
+
+
+  
+    /* 4) Text-viewer yüksekliğini küçült, overflow scroll */
+    #text-viewer {
+      height: 250px        !important;
+      max-height: none     !important;
+      overflow-y: auto     !important;
+    }
+  
+    /* 5) Altyazı kontrollerini alt alta düzenle */
+    .subtitle-controls {
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: .75rem;
+      justify-content: center;
+    }
+  
+    /* 6) “Dictionary” bölümü de tam genişlik ve üst boşluklu */
+    .dictionary-section {
+      width: 100%  !important;
+      margin-top: 1.5rem;
+    }
+    .dictionary-section .ekle-alani {
+        flex-direction: column !important;
+        align-items: stretch;  /* genişlikleri tam yap */
+      }
+      .dictionary-section .ekle-alani > * {
+        width: 100% !important;
+        margin-bottom: 0.75rem; /* alt boşluk */
+      }
+      .dictionary-section .ekle-alani > *:last-child {
+        margin-bottom: 0;      /* son elemanda boşluk yok */
+      }
+      /* 1) Üstteki başlık + butonu görünümünden kurtulup tüm kapsayıcıyı kart yap */
+  .video-text-section {
+    padding: 0;                 /* ekstra padding kaldır */
+    margin-bottom: 1rem;        /* altında biraz boşluk */
+  }
+
+  /* 2) Video + metin kapsayıcısını dikine çevir ve kart gövdesi ver */
+  .video-text-container {
+    display: flex !important;
+    flex-direction: column !important;
+    background-color: #121212;  /* istediğiniz koyu gri arka */
+    border-radius: 0.75rem;      /* tek kartın köşeleri */
+    overflow: hidden;            /* taşan içeriği gizle */
+  }
+
+  /* 3) İç kartlar (video & metin) artık transparan ve kenarsız */
+  #video-container,
+  .metin-container {
+    background: transparent !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 1rem;              /* içerik iç boşluğu kalsın */
+    width: 100%   !important;
+    min-width: auto !important;
+    flex: none !important;
+    
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  }
+  
