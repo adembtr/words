@@ -43,7 +43,7 @@ if (localStorage.getItem('allLines')) {
 }
 
 let currentPage = 0;
-const LINES_PER_PAGE = 2;
+const LINES_PER_PAGE = 4;
 
 function kaydetKelimeler() {
     localStorage.setItem('kelimeler', JSON.stringify(kelimeler));
@@ -192,13 +192,32 @@ nextLinesBtn.onclick = function() {
 
 // Add Text butonu
 addTextBtn.onclick = function() {
-    const text = prompt('Enter text:');
+    // Modalı aç
+    const modal = new bootstrap.Modal(document.getElementById('addTextModal'));
+    document.getElementById('modal-textarea').value = '';
+    modal.show();
+};
+
+// Modal Kaydet butonu
+const modalSaveBtn = document.getElementById('modal-save-btn');
+modalSaveBtn.onclick = function() {
+    const textarea = document.getElementById('modal-textarea');
+    const text = textarea.value.trim();
     if (text) {
         allLines.push(...text.split(/\r?\n/));
         saveAllLines();
         renderTextPage();
     }
+    // Modalı kapat
+    const modal = bootstrap.Modal.getInstance(document.getElementById('addTextModal'));
+    modal.hide();
 };
+
+// Modal kapatıldığında textarea temizle
+const addTextModal = document.getElementById('addTextModal');
+addTextModal.addEventListener('hidden.bs.modal', function () {
+    document.getElementById('modal-textarea').value = '';
+});
 
 // Delete Text butonu
 deleteTextBtn.onclick = function() {
