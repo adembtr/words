@@ -263,3 +263,29 @@ if (!ta) {
     ta.value = 'JavaScript çalışıyor!';
     console.log('Textarea bulundu ve JavaScript çalışıyor!');
 }
+
+// Theme Toggle
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = themeToggle.querySelector('i');
+
+// Check for saved theme preference
+const savedTheme = localStorage.getItem('theme') || 'dark';
+document.body.classList.add(`${savedTheme}-theme`);
+updateThemeIcon(savedTheme);
+
+themeToggle.addEventListener('click', () => {
+    const isDarkTheme = document.body.classList.contains('dark-theme');
+    const newTheme = isDarkTheme ? 'light' : 'dark';
+    
+    // Remove both theme classes first
+    document.body.classList.remove('dark-theme', 'light-theme');
+    // Add the new theme class
+    document.body.classList.add(`${newTheme}-theme`);
+    
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
+});
+
+function updateThemeIcon(theme) {
+    themeIcon.className = theme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+}

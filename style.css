@@ -282,7 +282,7 @@ h1 {
       justify-content: center;
     }
   
-    /* 6) “Dictionary” bölümü de tam genişlik ve üst boşluklu */
+    /* 6) "Dictionary" bölümü de tam genişlik ve üst boşluklu */
     .dictionary-section {
       width: 100%  !important;
       margin-top: 1.5rem;
@@ -330,3 +330,61 @@ h1 {
 
   }
   
+/* Light Theme Styles */
+body.light-theme {
+    background-color: #f8f9fa !important;
+    color: #212529 !important;
+}
+
+.light-theme .video-container,
+.light-theme .metin-container,
+.light-theme .dictionary-section {
+    background-color: #fff !important;
+    color: #212529 !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1) !important;
+}
+
+.light-theme .form-control {
+    background-color: #fff !important;
+    color: #212529 !important;
+    border-color: #dee2e6 !important;
+}
+
+.light-theme #text-viewer {
+    background-color: #fff !important;
+    color: #212529 !important;
+}
+
+.light-theme #anlam-goster {
+    color: #dc3545 !important; /* Bootstrap's danger red color */
+}
+
+.light-theme .kelime-item {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+    color: #212529 !important;
+}
+
+.light-theme .kelime-item:hover {
+    background-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.light-theme .kelime-adi {
+    color: #198754 !important; /* Bootstrap success color */
+}
+
+.light-theme .kelime-anlam {
+    color: #6c757d !important; /* Bootstrap secondary color */
+}
+
+.light-theme .modal-content {
+    background-color: #fff !important;
+    color: #212529 !important;
+}
+
+.light-theme .modal-header {
+    border-bottom-color: #dee2e6 !important;
+}
+
+.light-theme .modal-footer {
+    border-top-color: #dee2e6 !important;
+}  
