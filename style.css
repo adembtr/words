@@ -818,3 +818,42 @@ body.light-theme {
     }
   }
   
+
+
+
+
+  /* ─── Çeviri Bölümü Stilleri ───────────────────────────────────────────────── */
+
+/* Container’ı yatayda ortalar ve alt boşluk bırakır */
+.translator-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem; /* mb-4 ile uyumlu */
+    padding: 0 1rem;      /* yan boşluk, taşmayı önlemek için */
+  }
+  
+  /* iFrame’e koyu tema, iç boşluk ve yuvarlak köşe verir */
+  .translator-container iframe {
+    width: 80%;             /* ekranın %80’i; istersen %70, %90 ya da sabit px de kullanabilirsin */
+    max-width: 800px;       /* çok geniş ekranlarda sınırlı kalsın */
+    height: 850px;          /* ihtiyaca göre artır/azalt */
+    border: none;
+    border-radius: 0.75rem; /* Bootstrap’ın rounded-3 karşılığı */
+    padding: 0.5rem;
+    background-color: #1e1e1e; /* koyu gri; karanlık tema ile uyumlu */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Eğer body.dark-theme sınıfını kullanıyorsan, gövdeye uygun yazı rengi */
+  .dark-theme .translator-container iframe {
+    color: #e0e0e0;
+  }
+  
+  /* Mobil uyumluluk: küçük ekranlarda iframe’i biraz daha daralt */
+  @media (max-width: 576px) {
+    .translator-container iframe {
+      width: 100%;
+      height: 250px;
+    }
+  }
+  
