@@ -681,3 +681,140 @@ body.light-theme {
     min-height: 1.5em;
     font-weight: bold;
 }
+/* ========================= */
+/* Random Word Test Styling */
+/* ========================= */
+
+/* Bölümü ortaya al, padding ve arka plan */
+.random-word-test-section {
+    background: #1a1a1a;
+    padding: 2rem 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    max-width: 600px;
+    margin: 2rem auto;
+    text-align: center;
+  }
+  
+  /* Başlık */
+  .random-word-test-section h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    color: #00ff1e;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Başlat butonu */
+  #random-word-start {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+  }
+  #random-word-start:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Test alanı konteyneri */
+  #random-word-area {
+    display: block; /* artık hidden kontrolü JS ile yapılacak */
+    margin-top: 2rem;
+  }
+  
+  /* Anlam gösteren yazı */
+  #random-word-meaning {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    background: #2c2c2c;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+  }
+  
+  /* Cevap inputu */
+  #random-word-answer {
+    display: block;
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto 1rem;
+    padding: 0.8rem 1rem;
+    font-size: 1.2rem;
+    border: 2px solid #444;
+    border-radius: 8px;
+    background: #111;
+    color: #e0e0e0;
+    box-shadow: inset 0 1px 4px rgba(0,0,0,0.7);
+    transition: border-color 0.2s;
+  }
+  #random-word-answer:focus {
+    border-color: #2ecc40;
+    outline: none;
+  }
+  
+  /* Gönder butonu */
+  #random-word-submit {
+    padding: 0.7rem 1.4rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+  }
+  #random-word-submit:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Geri bildirim */
+  #random-word-feedback {
+    margin-top: 1rem;
+    font-size: 1.15rem;
+    min-height: 1.5em;
+    color: #f1c40f;
+  }
+  
+  /* ========================= */
+  /* Light Theme (Sabah Modu) */
+  /* ========================= */
+  body.light-theme .random-word-test-section {
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  body.light-theme .random-word-test-section h2 {
+    color: #198754;
+  }
+  body.light-theme #random-word-meaning {
+    background: #f0f0f0;
+    color: #212529;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  }
+  body.light-theme #random-word-answer {
+    background: #fff;
+    color: #212529;
+    border-color: #ccc;
+    box-shadow: inset 0 1px 4px rgba(0,0,0,0.1);
+  }
+  body.light-theme #random-word-answer:focus {
+    border-color: #198754;
+  }
+  body.light-theme #random-word-submit,
+  body.light-theme #random-word-start {
+    background: #198754;
+    color: #fff;
+  }
+  body.light-theme #random-word-start:hover,
+  body.light-theme #random-word-submit:hover {
+    background: #157347;
+  }
+  
+  /* Responsive (dar ekran) */
+  @media (max-width: 480px) {
+    .random-word-test-section {
+      padding: 1.5rem;
+    }
+    #random-word-answer {
+      width: 100%;
+    }
+  }
+  
