@@ -540,3 +540,140 @@ document.getElementById('delete-matching-test').addEventListener('click', () => 
         if (e.key === 'Enter') submitBtn.click();
     });
 })();
+
+// Globals and existing functionality above...
+
+// --- START: Sliding‐Window Sentence Quiz with 10-Attempt Failsafe ---
+
+// 1) Metni tek string hâline getir ve kelimelere böl
+function getAllWords() {
+    const text = allLines.join(' ');
+    return text.split(/\s+/).filter(w => w.length > 0);
+}
+  
+// 2) Her kelime için etrafından pencereyi al
+function makeWindowQuiz(wordsList, dictWords) {
+    const items = [];
+    dictWords.forEach(target => {
+      const lower = target.toLowerCase();
+      let found = false;
+      wordsList.forEach((w, i) => {
+        if (w.toLowerCase().replace(/[^\w]/g, '') === lower) {
+          found = true;
+          const start = Math.max(0, i - 10);
+          const end   = Math.min(wordsList.length, i + 21);
+          const windowWords = wordsList.slice(start, end);
+          const snippet = windowWords.map(ww => 
+            ww.toLowerCase().replace(/[^\w]/g,'') === lower ? '____' : ww
+          ).join(' ');
+          items.push({ word: target, snippet });
+        }
+      });
+      if (!found) {
+        items.push({ word: target, snippet: `Cümle bulunamadı: ${target}` });
+      }
+    });
+    return items;
+}
+  
+// 3) Kartları ve deneme sayısını tut
+let quizItems = [];
+let currentCard = 0;
+let attempts = [];  // her kart için yanlış sayısı
+  
+function renderCard() {
+    const container = document.getElementById('sentence-quiz-container');
+    const prevBtn   = document.getElementById('prev-card');
+    const nextBtn   = document.getElementById('next-card');
+    container.innerHTML = '';
+  
+    // Bitti mi?
+    if (currentCard >= quizItems.length) {
+      container.innerHTML = `<div class="alert alert-success">Quiz tamamlandı!</div>`;
+    } else {
+      const { word, snippet } = quizItems[currentCard];
+      container.insertAdjacentHTML('beforeend', `
+        <div class="card bg-dark text-light mb-3">
+          <div class="card-body">
+            <p class="card-text">${snippet}</p>
+            <div class="d-flex align-items-center gap-2">
+              <input id="sw-answer" 
+                     class="form-control w-auto" 
+                     placeholder="Cevabınız">
+              <button id="sw-check" class="btn btn-primary btn-sm">Check</button>
+              <span id="sw-feedback" class="ms-2"></span>
+            </div>
+          </div>
+        </div>
+      `);
+    }
+  
+    // Buton durumu
+    prevBtn.disabled = currentCard <= 0;
+    nextBtn.disabled = currentCard >= quizItems.length;
+  
+    // Check butonuna event
+    const checkBtn = document.getElementById('sw-check');
+    if (checkBtn) {
+      checkBtn.addEventListener('click', checkAnswer);
+    }
+  }
+  
+  
+  function checkAnswer() {
+    const input   = document.getElementById('sw-answer');
+    const fb      = document.getElementById('sw-feedback');
+    const correct = quizItems[currentCard].word;
+    const given   = input.value.trim();
+  
+    if (!given) {
+      fb.textContent = 'Lütfen bir cevap girin!';
+      fb.className   = 'text-warning';
+      return;
+    }
+  
+    if (given.toLowerCase() === correct.toLowerCase()) {
+      fb.textContent = '✔';
+      fb.className   = 'text-success';
+    } else {
+      fb.textContent = `✖: ${correct}`;
+      fb.className   = 'text-danger';
+    }
+  }
+  
+// 4) Butonlara event ata
+// Create quiz
+document.getElementById('create-sentence-quiz').addEventListener('click', () => {
+    const allWords  = getAllWords();
+    const dictWords = kelimeler.map(o => o.kelime);
+    quizItems       = makeWindowQuiz(allWords, dictWords);
+    currentCard     = 0;
+    attempts        = Array(quizItems.length).fill(0);
+    renderCard();
+});
+
+// Delete quiz
+document.getElementById('delete-sentence-quiz').addEventListener('click', () => {
+    document.getElementById('sentence-quiz-container').innerHTML = '';
+    quizItems = [];
+    currentCard = 0;
+    attempts = [];
+    document.getElementById('prev-card').disabled = true;
+    document.getElementById('next-card').disabled = true;
+});
+
+// Prev/Next navigation
+document.getElementById('prev-card').addEventListener('click', () => {
+  if (currentCard > 0) {
+    currentCard--;
+    renderCard();
+  }
+});
+document.getElementById('next-card').addEventListener('click', () => {
+  if (currentCard < quizItems.length) {
+    currentCard++;
+    renderCard();
+  }
+});
+
+// --- END: Sliding‐Window Sentence Quiz with Navigation and 10-Attempt Failsafe ---

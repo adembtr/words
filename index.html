@@ -65,6 +65,25 @@
             </div>
             <div id="kelime-listesi" class="kelime-listesi"></div>
         </div>
+
+            <!-- Sentence Fill-in-the-Blank Section -->
+        <div class="sentence-blank-section mt-5 mb-5">
+        <h2 class="text-success fs-4 mb-3">Sentence Fill-in-the-Blank</h2>
+        <div class="d-flex gap-2 justify-content-center mb-3">
+            <button id="create-sentence-quiz" class="btn btn-success">Create Sentence Quiz</button>
+            <button id="delete-sentence-quiz" class="btn btn-danger">Delete Sentence Quiz</button>
+        </div>
+        <!-- Quiz kartlarının geleceği yer -->
+        <div id="sentence-quiz-container" class="questions-container"></div>
+
+        <!-- Navigasyon butonları -->
+        <div class="d-flex justify-content-between mt-3">
+            <button id="prev-card" class="btn btn-secondary" disabled>Geri</button>
+            <button id="next-card" class="btn btn-secondary" disabled>İleri</button>
+        </div>
+        </div>
+
+        
     </div>
 
     <!-- Add Text Modal -->
@@ -109,7 +128,8 @@
                 </div>
             </div>
         </div>
-
+        
+       
         <!-- Multiple Choice Test Section -->
         <div class="multiple-choice-section mb-5">
             <h2 class="text-success fs-4 mb-3">Multiple Choice Test</h2>
@@ -119,6 +139,8 @@
             </div>
             <div id="multiple-choice-questions" class="questions-container"></div>
         </div>
+
+  
 
         <!-- Rastgele Kelime Tahmin Et (Anlamı gör, İngilizceyi yaz) -->
         <div class="random-word-test-section mt-5">

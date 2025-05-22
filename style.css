@@ -856,4 +856,242 @@ body.light-theme {
       height: 250px;
     }
   }
+
+
+/* ──────────────────────────────────────────────────────────────
+   Sliding-Window Sentence Quiz Section Styles
+──────────────────────────────────────────────────────────────── */
+
+/* Bölüm kapsayıcısı */
+.sentence-blank-section {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+  }
+  
+  /* Başlık */
+  .sentence-blank-section h2 {
+    color: #00ff90;
+    margin-bottom: 1rem;
+  }
+  
+  /* Buton grubu */
+  .sentence-blank-section .btn {
+    min-width: 8rem;
+  }
+  
+  /* Kart container */
+  #sentence-quiz-container .card {
+    border: 1px solid #555;
+    border-radius: 0.5rem;
+  }
+  
+  /* Kart içi metin */
+  #sentence-quiz-container .card-text {
+    color: #e0e0e0;
+    font-size: 1rem;
+    word-break: break-word;
+  }
+  
+  /* Cevap input’u */
+  #sentence-quiz-container input#sw-answer {
+    width: 10rem;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid #555;
+    border-radius: 0.25rem;
+    background-color: #2a2a2a;
+    color: #fff;
+    font-size: 0.95rem;
+  }
+  
+  /* Feedback işareti */
+  #sentence-quiz-container span#sw-feedback {
+    font-size: 1.2rem;
+    width: 2.5rem;
+    text-align: center;
+    margin-left: 0.5rem;
+  }
+  
+  /* Navigasyon butonları */
+  #prev-card,
+  #next-card {
+    flex: 1;
+    margin: 0 0.5rem;
+  }
+  
+  /* Navigasyon container */
+  .sentence-blank-section .d-flex.justify-content-between {
+    margin-top: 1rem;
+  }
+  
+  /* Disabled buton stili */
+  button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  /* Doğru/yanlış renklendirmesi */
+  .text-success {
+    color: #28a745 !important;
+  }
+  
+  .text-danger {
+    color: #dc3545 !important;
+  }
+  /* Kart içeriğini dikey yığına al */
+#sentence-quiz-container .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch; /* tüm elemanlar tam genişlik alsın */
+  }
+  
+  /* Cümle metni (üstte) */
+  #sentence-quiz-container .card-text {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Girdi alanı */
+  #sentence-quiz-container input#sw-answer {
+    width: 100% !important;
+    margin: 0 !important;
+    order: 1;
+  }
+  
+  /* Check butonu */
+  #sentence-quiz-container button#sw-check {
+    align-self: flex-start; /* kutunun solunda */
+    order: 2;
+    margin: 0; 
+  }
+  
+  /* Geribildirim metni */
+  #sentence-quiz-container span#sw-feedback {
+    display: block;
+    width: 100% !important;
+    word-wrap: break-word;
+    order: 3;
+    margin-top: 0.25rem;
+  }
+  
+  /* Navigasyon buton grubu (masaüstü satır içi) */
+  .sentence-blank-section .d-flex.justify-content-between {
+    display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  }
+  
+
+  /* ================================ */
+/* Mobile First Adjustments (≤767px) */
+/* ================================ */
+@media (max-width: 767px) {
+
+    /* Container padding azalt */
+    .container {
+      padding: 0 0.5rem;
+    }
+  
+    /* Video + Metin dikine, tam genişlik */
+    .video-text-container {
+      flex-direction: column !important;
+      gap: 1rem;
+    }
+    .video-container, .metin-container {
+      width: 100% !important;
+      min-width: auto !important;
+    }
+  
+    /* Dictionary bölümü tam genişlik */
+    .dictionary-section, .sozluk-bolumu {
+      width: 100% !important;
+      padding: 1rem !important;
+      margin-top: 1rem !important;
+    }
+    .ekle-alani {
+      flex-direction: column !important;
+      align-items: stretch;
+    }
+    .ekle-alani > * {
+      width: 100% !important;
+      margin-bottom: 0.75rem !important;
+    }
+  
+    /* Text viewer kaydırmalı */
+    #text-viewer {
+      height: 200px !important;
+      overflow-y: auto !important;
+      max-height: none !important;
+    }
+  
+    /* Tooltip mobilde tam genişlik */
+    .tooltip {
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      max-width: 90vw !important;
+      font-size: 1rem !important;
+    }
+  
+    /* Quiz kartları tam genişlik */
+    #sentence-quiz-container .card {
+      margin: 0 !important;
+      border-radius: 0.5rem !important;
+    }
+    #sentence-quiz-container .card-text {
+      font-size: 0.95rem !important;
+    }
+    #sentence-quiz-container input#sw-answer {
+      width: 100% !important;
+      margin-bottom: 0.5rem;
+    }
+    #sentence-quiz-container button#sw-check {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+    /* Prev/Next butonları satır içi değil alt alta */
+    .sentence-blank-section .d-flex.justify-content-between {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    #prev-card, #next-card {
+      width: 100% !important;
+      margin: 0 ;
+    }
+  
+    /* Matching ve MC test item’ları tam genişlik */
+    .option-item, .matching-item {
+      width: 100% !important;
+      margin-bottom: 0.5rem !important;
+    }
+  
+    /* Random word test input ve buttons full-width */
+    #random-word-answer {
+      width: 100% !important;
+    }
+    #random-word-submit, #random-word-start {
+      width: 100% !important;
+      margin-bottom: 0.5rem;
+    }
+  
+    /* Modal textarea full-width*/
+    .modal-dialog {
+      max-width: 95% !important;
+    }
+    .modal-content {
+      padding: 0.5rem !important;
+    }
+    .modal-body textarea {
+      font-size: 1rem !important;
+      min-height: 200px !important;
+    }
+    .sentence-blank-section .d-flex.justify-content-between {
+        flex-direction: column !important;
+      }
+      #prev-card,
+      #next-card {
+        width: 100% !important;
+        margin: 0 !important;
+      }
+  }
   
