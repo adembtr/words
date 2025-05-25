@@ -47,7 +47,7 @@
         </div>
         
 
-        <div class="translator-container">
+        <div class="translator-container" >
             <iframe
             src="https://lingva.ml/#auto/tr"
             title="Lingva Translate"
@@ -55,33 +55,9 @@
             ></iframe>
         </div>
         
-        <!-- Kelime Ekleme Bölümü -->
-        <div class="dictionary-section">
-            <h2 class="text-success fs-4 mb-3">Dictionary</h2>
-            <div class="ekle-alani mb-4 d-flex gap-2 justify-content-center">
-                <input type="text" id="kelime-input" class="form-control w-auto" placeholder="Word">
-                <input type="text" id="anlam-input" class="form-control w-auto" placeholder="Meaning">
-                <button id="ekle-btn" class="btn btn-success">Add</button>
-            </div>
-            <div id="kelime-listesi" class="kelime-listesi"></div>
-        </div>
+        
 
-            <!-- Sentence Fill-in-the-Blank Section -->
-        <div class="sentence-blank-section mt-5 mb-5">
-        <h2 class="text-success fs-4 mb-3">Sentence Fill-in-the-Blank</h2>
-        <div class="d-flex gap-2 justify-content-center mb-3">
-            <button id="create-sentence-quiz" class="btn btn-success">Create Sentence Quiz</button>
-            <button id="delete-sentence-quiz" class="btn btn-danger">Delete Sentence Quiz</button>
-        </div>
-        <!-- Quiz kartlarının geleceği yer -->
-        <div id="sentence-quiz-container" class="questions-container"></div>
-
-        <!-- Navigasyon butonları -->
-        <div class="d-flex justify-content-between mt-3">
-            <button id="prev-card" class="btn btn-secondary" disabled>Geri</button>
-            <button id="next-card" class="btn btn-secondary" disabled>İleri</button>
-        </div>
-        </div>
+       
 
         
     </div>
@@ -105,58 +81,11 @@
       </div>
     </div>
 
-            <!-- Çeviri Bölümü -->
+
+
+
+ 
   
-    <!-- Test Sections -->
-    <div class="test-sections mt-5">
-        
-        <!-- Matching Test Section -->
-        <div class="matching-section">
-            <h2 class="text-success fs-4 mb-3">Matching Test</h2>
-            <div class="d-flex gap-2 justify-content-center mb-3">
-                <button id="create-matching-test" class="btn btn-success">Create Test</button>
-                <button id="delete-matching-test" class="btn btn-danger">Delete Test</button>
-            </div>
-            <div class="matching-container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div id="words-column" class="words-column p-3 rounded-3 bg-dark"></div>
-                    </div>
-                    <div class="col-md-6">
-                        <div id="meanings-column" class="meanings-column p-3 rounded-3 bg-dark"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-       
-        <!-- Multiple Choice Test Section -->
-        <div class="multiple-choice-section mb-5">
-            <h2 class="text-success fs-4 mb-3">Multiple Choice Test</h2>
-            <div class="d-flex gap-2 justify-content-center mb-3">
-                <button id="create-mc-test" class="btn btn-success">Create Test</button>
-                <button id="delete-mc-test" class="btn btn-danger">Delete Test</button>
-            </div>
-            <div id="multiple-choice-questions" class="questions-container"></div>
-        </div>
-
-  
-
-        <!-- Rastgele Kelime Tahmin Et (Anlamı gör, İngilizceyi yaz) -->
-        <div class="random-word-test-section mt-5">
-            <h2 class="text-success fs-4 mb-3">Guess the English Word</h2>
-            <button id="random-word-start" class="btn btn-success mb-3">Start</button>
-            <div id="random-word-area" style="display:none;">
-                <div id="random-word-meaning" class="written-question"></div>
-                <input type="text" id="random-word-answer" class="form-control" placeholder="Enter the word...">
-                <button id="random-word-submit" class="btn btn-primary mt-2">Submit</button>
-                <div id="random-word-feedback" class="written-feedback mt-2"></div>
-            </div>
-        </div>
-        
-
-    </div>
-
     <!-- JavaScript -->
     <script src="script.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
