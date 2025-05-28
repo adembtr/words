@@ -13,10 +13,8 @@ html, body {
   margin: 0 auto;
 }
 
-.translator-container iframe {
-  height: 685px;
-  width:100%;
-}
+
+
 /* Video Container */
 .video-container {
   aspect-ratio: 16/9;
